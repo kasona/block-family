@@ -1,38 +1,120 @@
 // Resets, Clearfix, etc
+@import './partials/_reset';
+@import './partials/_clearfix';
 
 // Variables
- 
-// Media Query Ranges 
- 
+$dark-color: black;
+$light-color: white;
+$bright-color: orange;
+$padding: 14px;
+
+// Media Query Ranges
+$medium: 'only screen and (min-width:600px) and (max-width:899px)';
+$large: 'only screen and (min-width:900px)';
+
 // Mixins
+@mixin block_font($block_font_size: 25px, $block_font_color: $dark){
+  font-size: $block_font_size;
+  color: $block_font_color;
+}
 
 // Styles
 body{
   background-color: orange;
   text-align: center;
   color: #EEE;
+
+  @media #{$medium}{
+
+  }
+
+  @media #{$large}{
+    background-color: $dark-color;
+  }
 }
- 
+
 h1, h2, h3, h4{
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
+
+
 }
- 
+
 h1{
   padding: 20px;
+  color: $dark-color;
+  font-size: 45px;
+
+  @media #{$medium}{
+    font-size: 45px;
+    color: $light-color;
+  }
+
+  @media #{$large}{
+    color: $bright-color;
+    font-size: 45px;
+  }
 }
- 
+
 h2{
- 
+  font-size: 29px;
+  padding: 18px;
+
+  @media #{$medium}{
+    color: $bright-color;
+    font-size: 30px;
+  }
+
+  @media #{$large}{
+    color: $dark-color;
+    font-size: 30px;
+
+  }
+
 }
- 
- 
+
+
 .block_family{
   max-width:350px;
   margin:auto;
+  max-width: 300px;
+
+  @media #{$medium}{
+  width: 800px;
+  max-width: 400px;
+  }
+
+  @media #{$large}{
+  font-size: 47px;
+  color: $light-color;
+  max-width: 650px;
+  }
 }
- 
+
 .block_family li{
   background-color: #222;
-  margin-bottom: 20px;
-  padding: 20px;
+  float: left;
+  margin: 5px;
+  width: 100%;
+  box-sizing: border-box;
+
+
+  @media #{$medium} {
+  background-color: $light-color;
+  margin: 5px;
+  width: 40%;
+  box-sizing: border-box;
+  &:nth-child(2n-1){
+    background-color: $dark-color;
+  }
+  }
+
+  @media #{$large} {
+  background-color: $bright-color;
+  margin: 5px;
+  width: 30%;
+  box-sizing: border-box;
+  &:nth-child(3n+2){
+    background-color: $light-color;
+  }
+  }
 }
